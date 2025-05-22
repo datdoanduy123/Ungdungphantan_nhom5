@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DiffGenerationConfig">
+    <option name="snapshotDb" value="false" />
+    <option name="snapshotDbValue" value="e4229d90-93be-4f42-8fb8-d605e13fd4f6" />
+    <option name="snapshotDirValue" value="D:\Documents\java_spring\Project\Backend\E-commerce\E-commerce\Services\product\src\main\resources\db\migration" />
+    <option name="snapshotModelValue" value="product:product" />
+  </component>
+</project>
