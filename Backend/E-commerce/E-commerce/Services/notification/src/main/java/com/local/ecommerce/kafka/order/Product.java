@@ -7,6 +7,6 @@ public record Product(
         String name,
         String description,
         BigDecimal price,
-        double amount
+        BigDecimal amount
 ) {
 }

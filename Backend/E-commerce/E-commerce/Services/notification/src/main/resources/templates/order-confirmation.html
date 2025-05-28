@@ -47,21 +47,21 @@
 </head>
 <body>
 <div class="email-container">
-    <h2>Order Confirmation</h2>
-    <p>Dear <strong th:text="${customerName}">Customer Name</strong>,</p>
-    <p>Thank you for your order. Below are the details:</p>
+    <h2>Xác nhận đặt hàng</h2>
+    <p>Xin chào <strong th:text="${customerName}">Customer Name</strong>,</p>
+    <p>Cảm ơn bạn đã mua hàng, dưới đây là các sản phẩm mà bạn đã đặt: </p>
 
-    <p><strong>Order Reference:</strong> <span th:text="${orderReference}">#123456</span></p>
-    <p><strong>Total Amount:</strong> <span th:text="${totalAmount}">$0.00</span></p>
+    <p><strong>Mã đơn hàng:</strong> <span th:text="${orderReference}">#123456</span></p>
+    <p><strong>Tổng giá tiền:</strong> <span th:text="${totalAmount}">$0.00</span></p>
 
-    <h3>Products Ordered:</h3>
+    <h3>Các loại sản phẩm:</h3>
     <table>
         <thead>
         <tr>
-            <th>Product Name</th>
-            <th>Description</th>
-            <th>Price</th>
-            <th>Quantity</th>
+            <th>Tên sản phẩm</th>
+            <th>Mô tả</th>
+            <th>Giá</th>
+            <th>Số lượng</th>
         </tr>
         </thead>
         <tbody>
@@ -69,7 +69,7 @@
             <td th:text="${product.name}">Product Name</td>
             <td th:text="${product.description}">Description</td>
             <td th:text="${product.price}">$0.00</td>
-            <td th:text="${product.amount}">0</td>
+            <td th:text="${#numbers.formatDecimal(product.amount, 0, 2)}">0</td>
         </tr>
         </tbody>
     </table>
