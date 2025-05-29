@@ -1,14 +1,15 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { CustomerComponent } from './customer/customer.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CustomerComponent],
-  template: '<app-customer></app-customer>'
+  imports: [
+    CommonModule,
+    RouterOutlet
+  ],
+  template: '<router-outlet></router-outlet>'
 })
 export class AppComponent {}
-
-
 
