@@ -1,58 +1,27 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-const API = 'http://localhost:8085/apt/v1/products';
-
-export interface ProductRequest {
-  id?: number;
-  name: string;
-  description: string;
-  availableQuantity: number;
-  price: number;
-  categoryId: number;
-}
-
-export interface ProductResponse {
+export interface Product {
   id: number;
   name: string;
-  description: string;
-  availableQuantity: number;
   price: number;
-  categoryId: number;
-  categoryDescription: string;
+  category: string;
 }
 
-export interface ProductPurchaseRequest {
-  productId: number;
-  quantity: number;
-}
-
-export interface ProductPurchaseResponse {
-  productId: number;
-  name: string;
-  description: string;
-  price: number;
-  quantity: number;
-}
-
-@Injectable({ providedIn: 'root' })
+@Injectable({
+  providedIn: 'root'
+})
 export class ProductService {
+  private apiUrl = 'http://localhost:8222/apt/v1/products'; 
+
   constructor(private http: HttpClient) {}
 
-  getAll(): Observable<ProductResponse[]> {
-    return this.http.get<ProductResponse[]>(API);
+  getProducts(): Observable<Product[]> {
+    return this.http.get<Product[]>(this.apiUrl);
   }
 
-  getById(id: number): Observable<ProductResponse> {
-    return this.http.get<ProductResponse>(`${API}/${id}`);
-  }
-
-  create(product: ProductRequest): Observable<number> {
-    return this.http.post<number>(API, product);
-  }
-
-  purchase(products: ProductPurchaseRequest[]): Observable<ProductPurchaseResponse[]> {
-    return this.http.post<ProductPurchaseResponse[]>(`${API}/purchase`, products);
+  searchProducts(name: string): Observable<Product[]> {
+    return this.http.get<Product[]>(`${this.apiUrl}?name=${name}`);
   }
 }
