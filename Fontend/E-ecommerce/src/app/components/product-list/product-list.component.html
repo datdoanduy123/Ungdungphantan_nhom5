@@ -1,1 +1,15 @@
-
+<div class="container mt-4">
+    <h2>Danh sách sản phẩm</h2>
+    <div class="row">
+      <div class="col-md-4 mb-3" *ngFor="let product of products">
+        <div class="card h-100">
+          <img class="card-img-top" src="https://via.placeholder.com/150" alt="Hình sản phẩm">
+          <div class="card-body">
+            <h5 class="card-title">{{ product.name }}</h5>
+            <p class="card-text">Giá: {{ product.price | currency:'VND' }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
